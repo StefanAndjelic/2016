@@ -25,8 +25,17 @@ console.log("izmenjena vrednost iz prototipa: "+studentPeraPeric.lk);
 //vrednost u prototipu je ostala neizmenjena
 console.log("vrednost u prototipu: "+Object.getPrototypeOf(studentPeraPeric).lk);
 //caveat! iz "naslednika" mogu da izmenim vrednost svojstva u prototipu!
+//napomena Object.getPrototypeOf je read onli metoda koja radi isto sto i
+//depricated object.__proto__
 Object.getPrototypeOf(studentPeraPeric).lk="nova vrednost";
 console.log("vrednost u prototipu: "+peraPeric.lk);
+//testiranje svojstava
+console.log('pristupanje svojstvu koje ne postoji: '+studentPeraPeric.brojIndeksa)
+console.log('operator in: '+('brojIndeksa' in studentPeraPeric))
+console.log('operator in: '+('ime' in studentPeraPeric))
+console.log('hasOwnProperty: '+studentPeraPeric.hasOwnProperty('ime'))
+Object.defineProperty(studentPeraPeric,'studira', {enumerable: false, value:true});
+console.log('propertyIsEnumerable: '+studentPeraPeric.propertyIsEnumerable('studira'))
 
 //enumeracija svojstava
 console.log("enumeracija svojstava");

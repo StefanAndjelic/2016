@@ -2,3 +2,4 @@
 
 * Objekti
 * Funkcije
+* Nasleđivanje
